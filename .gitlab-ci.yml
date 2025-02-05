@@ -1,0 +1,8 @@
+
+stages:
+  - main
+
+build:
+  stage: main
+  script:
+    - docker build -t gitlab_misskey:latest .
