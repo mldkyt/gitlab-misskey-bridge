@@ -21,7 +21,7 @@ async def on_message(msg: Message):
     if len(msg.embeds) == 0:
         return
 
-    message = "$[x2 Activity on [git.mldchan.dev](https://git.mldchan.dev/):]"
+    message = "$[x2 Activity on [git.mldchan.dev](https://git.mldchan.dev/):]\n\n"
 
     if str(msg.channel.id) == os.getenv("CHANNEL_ID"):
         message += f"{msg.embeds[0].description}\n\n"
