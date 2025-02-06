@@ -21,12 +21,14 @@ async def on_message(msg: Message):
     if len(msg.embeds) == 0:
         return
 
+    if str(msg.channel.id) != os.getenv('CHANNEL_ID'):
+        return
+
     message = "$[x2 Activity on [git.mldchan.dev](https://git.mldchan.dev/):]\n\n"
 
-    if str(msg.channel.id) == os.getenv("CHANNEL_ID"):
-        message += f"{msg.embeds[0].description}\n\n"
-        date = msg.embeds[0].timestamp.strftime("%m/%d/%Y %I:%M:%S %p")
-        message += f"{date}"
+    message += f"{msg.embeds[0].description}\n\n"
+    date = msg.embeds[0].timestamp.strftime("%m/%d/%Y %I:%M:%S %p")
+    message += f"{date}"
 
     print('Making post:', message)
 
